@@ -1,0 +1,38 @@
+
+/* src/styles/global.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* تنظیمات پیش‌فرض */
+  html, body {
+    font-family: 'YekanBakh', 'Nunito', sans-serif;
+  }
+
+  /* فونت و جهت برای فارسی */
+  :lang(fa) {
+    font-family: 'YekanBakh', sans-serif;
+    direction: rtl;
+  }
+
+  /* فونت و جهت برای انگلیسی */
+  :lang(en) {
+    font-family: 'Nunito', sans-serif;
+    direction: ltr;
+  }
+
+  /* پشتیبانی از RTL/LTR */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+
+  [dir="ltr"] {
+    direction: ltr;
+  }
+}
+
+
+
+
