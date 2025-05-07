@@ -11,56 +11,51 @@ function Header() {
     const storedLanguage = localStorage.getItem('language') || 'fa';
     i18n.changeLanguage(storedLanguage);
     document.documentElement.lang = storedLanguage;
+    document.documentElement.dir = storedLanguage === 'fa' ? 'rtl' : 'ltr';
   }, [i18n]);
 
   const changeLanguage = (lng) => {
     localStorage.setItem('language', lng);
     i18n.changeLanguage(lng);
     document.documentElement.lang = lng;
-   
+    document.documentElement.dir = lng === 'fa' ? 'rtl' : 'ltr';
   };
 
   const isRtl = i18n.language === 'fa';
 
   return (
     <>
-      <AppBar position="sticky" >
+      <AppBar position="sticky" sx={{ backgroundColor: 'transparent',
+         boxShadow: 'none' ,
+         backgroundColor: 'rgba(17, 3, 65, 0.4)'}}
+          >
         <Container maxWidth="lg">
-          <Toolbar className={`flex space-x-4 ${isRtl ? 'space-x-reverse rtl' : 'ltr'}`}>
+          <Toolbar className="flex items-center justify-between">
+            {/* عنوان Planets Blog */}
             <Typography
               component="h1"
               variant="h5"
               fontWeight="bold"
-              className={isRtl ? 'font-yekan' : 'font-nunito'}
+              className={isRtl ? 'font-yekan text-right' : 'font-nunito text-left'}
             >
               {t('planetsBlog')}
             </Typography>
-            <div className={`flex space-x-4 `}>
-            <Button color="inherit" >
-                {t('Authors')}
-              </Button>
-              <Button  color="inherit">
-                {t('home')}
-              </Button>
-              <Button  color="inherit" >
-                {t('aboutUs')}
-              </Button>
-              <Button color="inherit">
-                {t('services')}
-              </Button>
-              <Button color="inherit" >
-                {t('blog')}
-              </Button>
-              <Button color="inherit" >
-                {t('contactUs')}
-              </Button>
+
+            {/* دکمه‌های ناوبری (وسط) */}
+            <div className="flex justify-center flex-grow space-x-6">
+              <Button color="inherit">{t('Authors')}</Button>
+              <Button color="inherit">{t('home')}</Button>
+              <Button color="inherit">{t('aboutUs')}</Button>
+              <Button color="inherit">{t('services')}</Button>
+              <Button color="inherit">{t('blog')}</Button>
+              <Button color="inherit">{t('contactUs')}</Button>
             </div>
-            <div className={`flex gap-4 ${isRtl ? 'rtl' : 'ltr'} hx-5`}>
-             
+
+            {/* پرچم‌ها */}
+            <div className="flex gap-4">
               <button
                 type="button"
-                className={`flex w-7 h-7 rounded-lg 
-                `}
+                className="flex w-7 h-7 rounded-lg"
                 onClick={() => changeLanguage('en')}
               >
                 <img
@@ -71,7 +66,7 @@ function Header() {
               </button>
               <button
                 type="button"
-                className={`flex w-7 h-7 rounded-lg`}
+                className="flex w-7 h-7 rounded-lg"
                 onClick={() => changeLanguage('fa')}
               >
                 <img
@@ -84,7 +79,7 @@ function Header() {
           </Toolbar>
         </Container>
       </AppBar>
-      <h1 className={`text-xl ${isRtl ? 'rtl' : 'ltr'}`}>{t('headerTitle')}</h1>
+      <h1 className={`text-xl ${isRtl ? 'text-right' : 'text-left'}`}>{t('headerTitle')}</h1>
     </>
   );
 }
