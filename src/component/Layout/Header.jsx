@@ -33,8 +33,8 @@ function Header() {
           <Toolbar className="flex items-center justify-between">
             {/* عنوان Planets Blog */}
             <Typography
-              component="h1"
-              variant="h5"
+              component="h3"
+              variant="h4"
               fontWeight="bold"
               className={isRtl ? 'font-yekan text-right' : 'font-nunito text-left'}
             >
@@ -43,7 +43,7 @@ function Header() {
 
             {/* دکمه‌های ناوبری (وسط) */}
             <div className="flex justify-center flex-grow space-x-6">
-              <Button color="inherit">{t('Authors')}</Button>
+              <Button color="inherit" >{t('Authors')}</Button>
               <Button color="inherit">{t('home')}</Button>
               <Button color="inherit">{t('aboutUs')}</Button>
               <Button color="inherit">{t('services')}</Button>

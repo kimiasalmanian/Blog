@@ -5,7 +5,7 @@ import './index.css';
 import "../i18n.js"
 import App from './App.jsx';
 const client= new ApolloClient({
-  uri:"https://us-west-2.cdn.hygraph.com/content/cm9o1rvvn01e407w2o07odyi6/master",
+  uri:import.meta.env.VITE_APP_GRAPHCMS_URI,
   cache: new InMemoryCache()
 })
 
