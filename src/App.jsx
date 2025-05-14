@@ -1,28 +1,23 @@
-import { gql, useQuery } from "@apollo/client"
-import Header from "./component/Layout/Header";
-
-const QUERY = gql`
-  query {
-    authors {
-      name
-    }
-  }
-`
+import Homepage from "./component/Home/Homepage";
+import Layout from "./component/Layout/Layout";
 
 function App() {
-  const { data } = useQuery(QUERY)
-  console.log(data)
-
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('/images/background.png')" }}>
-      <Header/>
-     
- 
-</div>
-
-  )
+    <div
+      className="min-h-screen"
+      style={{
+        backgroundImage: "url('/images/background.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center", 
+        backgroundRepeat: "no-repeat", 
+        backgroundAttachment: "fixed", 
+      }}
+    >
+      <Layout>
+        <Homepage />
+      </Layout>
+    </div>
+  );
 }
 
-export default App
-
+export default App;
